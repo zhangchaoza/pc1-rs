@@ -1,0 +1,49 @@
+[tasks.init]
+install_crate = "cross"
+
+[tasks.clean]
+command = "cargo"
+args = ["clean"]
+
+[tasks.test]
+command = "cross"
+args = ["test", "--target", "x86_64-unknown-linux-gnu"]
+dependencies = [
+    "clean",
+    "test-aarch64-linux-gnu",
+    "test-aarch64-linux-musl",
+    "test-x86-linux-gnu",
+    "test-x86-linux-musl",
+    "test-armv7-linux-gnueabihf",
+    "test-armv7-linux-musleabihf",
+]
+
+[tasks.test-aarch64-linux-gnu]
+command = "cross"
+args = ["test", "--target", "aarch64-unknown-linux-gnu"]
+dependencies = ["clean"]
+
+[tasks.test-aarch64-linux-musl]
+command = "cross"
+args = ["test", "--target", "aarch64-unknown-linux-musl"]
+dependencies = ["clean"]
+
+[tasks.test-x86-linux-gnu]
+command = "cross"
+args = ["test", "--target", "x86_64-unknown-linux-gnu"]
+dependencies = ["clean"]
+
+[tasks.test-x86-linux-musl]
+command = "cross"
+args = ["test", "--target", "x86_64-unknown-linux-musl"]
+dependencies = ["clean"]
+
+[tasks.test-armv7-linux-gnueabihf]
+command = "cross"
+args = ["test", "--target", "armv7-unknown-linux-gnueabihf"]
+dependencies = ["clean"]
+
+[tasks.test-armv7-linux-musleabihf]
+command = "cross"
+args = ["test", "--target", "armv7-unknown-linux-musleabihf"]
+dependencies = ["clean"]
