@@ -1,0 +1,14 @@
+[target.aarch64-unknown-linux-gnu]
+pre-build = [
+    "apt-get update && apt-get install --assume-yes --no-install-recommends libclang-8-dev clang-8", # for bindgen
+]
+
+[target.x86_64-unknown-linux-gnu]
+pre-build = [
+    "apt-get update && apt-get install --assume-yes --no-install-recommends libclang-8-dev clang-8", # for bindgen
+]
+
+[target.armv7-unknown-linux-gnueabihf]
+pre-build = [
+    "apt-get update && apt-get install --assume-yes --no-install-recommends libclang-8-dev clang-8", # for bindgen
+]
