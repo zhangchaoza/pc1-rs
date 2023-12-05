@@ -47,3 +47,8 @@ dependencies = ["clean"]
 command = "cross"
 args = ["test", "--target", "armv7-unknown-linux-musleabihf"]
 dependencies = ["clean"]
+
+[tasks.publish]
+command = "cargo"
+args = ["publish", "--registry", "crates-io"]
+dependencies = ["test"]
